@@ -19,6 +19,7 @@ app.post("/register", async (req, res) => {
 
         user.save().then((user) => {
             res.status(201).send(user);
+            
         }).catch((err) => {
             res.status(400).send(user);
         })

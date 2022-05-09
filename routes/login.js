@@ -1,10 +1,11 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const User = require("../models/UserModel.js");
+const User = require("../models/user.js");
 const app = express();
 
-app.post("/login", (req, res) => {
+
+app.post("/login", async (req, res) => {
 
     User.findOne({username: req.body.username})
     .then((user) => {
@@ -37,3 +38,5 @@ app.post("/login", (req, res) => {
         });
     });
 });
+
+module.exports = app;
